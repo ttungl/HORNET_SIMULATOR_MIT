@@ -1,0 +1,51 @@
+diff -ur hornet-1.0/src/boost.task-0.4.2/boost/task/detail/bind_processor.hpp hornet-1.0-mod2/src/boost.task-0.4.2/boost/task/detail/bind_processor.hpp
+--- hornet-1.0/src/boost.task-0.4.2/boost/task/detail/bind_processor.hpp	2011-06-01 21:51:37.000000000 +0800
++++ hornet-1.0-mod2/src/boost.task-0.4.2/boost/task/detail/bind_processor.hpp	2014-05-04 02:58:12.144146742 +0800
+@@ -7,7 +7,7 @@
+ #ifndef BOOST_TASKS_DETAIL_BIND_PROCESSOR_H
+ #define BOOST_TASKS_DETAIL_BIND_PROCESSOR_H
+ 
+-#include <boost/task/detail/config.hpp>
++//#include <boost/task/detail/config.hpp>
+ 
+ # if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
+ #   define BOOST_HAS_PROCESSOR_BINDINGS 1
+diff -ur hornet-1.0/src/boost.task-0.4.2/boost/task/detail/bind_processor_linux.hpp hornet-1.0-mod2/src/boost.task-0.4.2/boost/task/detail/bind_processor_linux.hpp
+--- hornet-1.0/src/boost.task-0.4.2/boost/task/detail/bind_processor_linux.hpp	2011-06-01 21:51:37.000000000 +0800
++++ hornet-1.0-mod2/src/boost.task-0.4.2/boost/task/detail/bind_processor_linux.hpp	2014-05-04 02:57:55.310812847 +0800
+@@ -38,7 +38,7 @@
+ 		throw boost::system::system_error(
+ 				boost::system::error_code(
+ 					errno_,
+-					boost::system::system_category) );
++					boost::system::system_category()) );
+ }
+ 
+ inline
+@@ -56,7 +56,7 @@
+ 		throw boost::system::system_error(
+ 				boost::system::error_code(
+ 					errno_,
+-					boost::system::system_category) );
++					boost::system::system_category()) );
+ }
+ 
+ }}
+diff -ur hornet-1.0/src/cpu/instr2code hornet-1.0-mod2/src/cpu/instr2code
+--- hornet-1.0/src/cpu/instr2code	2011-06-01 21:51:37.000000000 +0800
++++ hornet-1.0-mod2/src/cpu/instr2code	2014-05-04 02:58:20.320813684 +0800
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ 
+ from __future__ import with_statement
+ 
+diff -ur hornet-1.0/src/tools/darimg hornet-1.0-mod2/src/tools/darimg
+--- hornet-1.0/src/tools/darimg	2011-06-01 21:51:37.000000000 +0800
++++ hornet-1.0-mod2/src/tools/darimg	2014-05-04 02:58:26.930813903 +0800
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ # -*- mode:python; indent-tabs-mode:nil; -*-
+ # vim:set expandtab shiftwidth=4 filetype=python:
+ 

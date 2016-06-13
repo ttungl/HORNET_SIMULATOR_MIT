@@ -1,0 +1,33 @@
+0. Download and extract
+    (1) 下載http://csg.csail.mit.edu/hornet/downloads/hornet-1.0.tbz
+    (2) tar jxvf hornet-1.0.tbz
+    (3) cd hotnet-1.0.tbz
+
+1. Install nesessary packages
+sudo apt-get install g++
+sudo apt-get install patch
+sudo apt-get install libboost-all-dev
+sudo apt-get install qmtest
+
+1.5 Install the MIPS compiler
+    (1) 下載https://sourcery.mentor.com/GNUToolchain/package12215/public/mips-linux-gnu/mips-2013.11-36-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2
+    (2) tar jxvf mips-2013.11-36-mips-linux-gnu-i686-pc-linux-gnu.tar.bz2
+    (3) sudo mv mips-2013.11 /opt/
+    (4) sudo vim /etc/profile.d/mips-gcc.sh，內容打
+            export PATH=$PATH:/opt/mips-2013.11/bin/
+    (5) 關掉terminal再開一遍
+
+2. modify some files
+    (1) 下載hornet-1.0.patch
+    (2) cd hornet-1.0/
+    (3) patch -p1 -i ../hornet-1.0.patch
+
+3. Compile
+./configure --enable-mips-rts --with-mips-ld=mips-linux-gnu-ld --with-mips-as=mips-linux-gnu-as --with-mips-cc=mips-linux-gnu-gcc --with-mips-ar=mips-linux-gnu-ar --with-mips-ranlib=mips-linux-gnu-ranlib
+make AM_CXXFLAGS=-Wall LDFLAGS=-pthread
+sudo env PATH=$PATH make install
+
+4. Run hello
+cd examples/hello/
+make
+darsim hello.img
